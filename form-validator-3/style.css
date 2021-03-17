@@ -1,0 +1,81 @@
+:root {
+  --success-color: #ac2ecc;
+  --error-color: #ff6600;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(228, 228, 228);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 500px;
+  border: 2px solid rgb(59, 59, 85);
+  padding: 35px;
+  border-radius: 12 px;
+}
+
+.form {
+  padding: 40px;
+}
+
+h3 {
+  font-size: 26px color rgb(45, 45, 199);
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-control.error input {
+  border-color: var(--error-color);
+}
+
+.form-control.success input {
+  border-color: var(--success-color);
+}
+
+.form-control small {
+  color: var(--error-color);
+  position: absolute;
+  visibility: hidden;
+  bottom: 0;
+  left: 0;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+button {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 15px 10px;
+  background-color: darkslategrey;
+  color: white;
+  display: block;
+  margin: 20px;
+}

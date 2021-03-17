@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Currency Exchange Rates</title>
+  </head>
+  <body>
+    <img src="img/ibrahim-rifath-OApHds2yEGQ-unsplash.jpg" class="money-img" />
+    <h1>Exchange Rate Calculator</h1>
+    <p>Choose the currency and the amounts to get the exchange rate.</p>
+    <div class="container">
+      <div class="currency">
+        <select id="currency-one">
+          <option value="CAD" selected>CAD</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="NZD">NZD</option>
+          <option value="RUB">RUB</option>
+          <option value="EUR">EUR</option>
+          <option value="MXN">MXN</option>
+        </select>
+        <input type="number" id="amount-one" placeholder="0" value="1" />
+      </div>
+
+      <div class="swap-rate-container">
+        <button class="btn" id="swap">SWAP</button>
+
+        <!-- Nothing is going to go inside that rate div because that will be generated dynamically -->
+        <div class="rate" id="rate"></div>
+      </div>
+
+      <div class="currency">
+        <select id="currency-two">
+          <option value="CAD">CAD</option>
+          <option value="USD" selected>USD</option>
+          <option value="GBP">GBP</option>
+          <option value="NZD">NZD</option>
+          <option value="RUB">RUB</option>
+          <option value="EUR">EUR</option>
+          <option value="MXN">MXN</option>
+        </select>
+
+        <!-- We are going to grab onto ampunt two with JS. We do not want a second value because that will be generated -->
+        <input type="number" id="amount-two" placeholder="0" value="1" />
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
