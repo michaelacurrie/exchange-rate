@@ -11,6 +11,7 @@ const swap = document.getElementById("swap");
 // Fetch exchange rates and update the DOM
 
 function calculate() {
+
   const currency_one = currencyElementOne.value;
   const currency_two = currencyElementTwo.value;
   fetch(
@@ -18,13 +19,15 @@ function calculate() {
   )
     .then((res) => res.json())
     .then((data) => {
-      const rate = data.conversion_rates[currency_two];
-       rateElement.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
-       amountElementTwo.value = (amountElementOne.value * rate).toFixed(2);
+        if (data.hasOwnProperty("conversion_rates")) {
+            const rate = data.conversion_rates[currency_two];
+            rateElement.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+            amountElementTwo.value = (amountElementOne.value * rate).toFixed(2);
+        }
     });
 }
 
-// Event Listners
+// Event Listeners
 
 currencyElementOne.addEventListener("change", calculate);
 amountElementOne.addEventListener("input", calculate);
