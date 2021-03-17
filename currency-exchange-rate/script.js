@@ -13,17 +13,14 @@ const swap = document.getElementById("swap");
 function calculate() {
   const currency_one = currencyElementOne.value;
   const currency_two = currencyElementTwo.value;
-
   fetch(
     `https://v6.exchangerate-api.com/v6/0d85c31cb81ed7c1467411cb/latest/${currency_one}`
   )
     .then((res) => res.json())
     .then((data) => {
-      const rate = data.rates[currency_two];
-
-      rateElement.innerText = `1 ${currency_one} = ${rates} ${currency_two}`;
-
-      amountElementTwo.value = (amountElementOne.value * rates).toFixed(2);
+      const rate = data.conversion_rates[currency_two];
+       rateElement.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+       amountElementTwo.value = (amountElementOne.value * rate).toFixed(2);
     });
 }
 
@@ -34,7 +31,7 @@ amountElementOne.addEventListener("input", calculate);
 currencyElementTwo.addEventListener("change", calculate);
 amountElementTwo.addEventListener("input", calculate);
 
-swap.addEventListener("clcik", () => {
+swap.addEventListener("click", () => {
   const temp = currencyElementOne.value;
   currencyElementOne.value = currencyElementTwo.value;
   currencyElementTwo.value = temp;
